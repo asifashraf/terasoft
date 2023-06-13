@@ -1,0 +1,7 @@
+.is-expanded-menu .menu-link, .is-expanded-menu .menu-link.current,.menu-item.current > .menu-link {
+    color: #15888a;
+}
+
+.is-expanded-menu .menu-link:hover, .is-expanded-menu .menu-link.current:hover, .menu-item.current > .menu-link:hover{
+    color: #107072;
+}

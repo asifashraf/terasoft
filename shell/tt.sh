@@ -3,8 +3,9 @@
 action=$1
 
 if [[ -z "$action" || "$action" == "--help" ]]; then
-  echo "  ====== TeraSoft ======"
+  echo "====== TeraSoft ======"
   echo "                      cd, push"
+  echo "dk.                   up"
 else
  case $action in
   "cd")
@@ -16,6 +17,11 @@ else
       git add .
       git commit -m "$2"
       git push
+	;;
+
+  "dk.up")
+	  source cd-tt.sh
+    docker-compose up -d
 	;;
 
   *)

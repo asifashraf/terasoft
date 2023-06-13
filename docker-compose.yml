@@ -9,4 +9,3 @@ services:
     command: dotnet watch run --urls http://+:80
     ports:
       - 8845:80
-      - 40477:40477
