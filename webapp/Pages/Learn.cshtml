@@ -1,12 +1,33 @@
 @page
 @model LearnModel
+@inject IWebHostEnvironment env
+
 @{
-    ViewData["Title"] = "ts: Privacy Policy";
-}
-@section inHead {
-    <link rel="stylesheet" href="~/css/content-page.css" />
-}
-<h1>@ViewData["Title"]</h1>
+    string fileName = "extras/learn/aspnet/01-intro.md";  // Relative file path from the ASP.NET project root
 
-<p>Use this page to detail your site's privacy policy.</p>
+    // Read Markdown content from file
+    string filePath = Path.Combine(env.WebRootPath, fileName);
+    string markdownContent = System.IO.File.ReadAllText(filePath);
 
+    // Render Markdown to HTML using Markdig
+    var pipeline = new Markdig.MarkdownPipelineBuilder().Build();
+    string htmlContent = Markdig.Markdown.ToHtml(markdownContent, pipeline);
+}
+
+<h1>@Model.Title</h1>
+<p>@Model.Message</p>
+<div>@Html.Raw(htmlContent)</div>
+
+@functions {
+    public class LearnModel : PageModel
+    {
+        public string Title { get; set; }
+        public string Message { get; set; }
+
+        public void OnGet()
+        {
+            Title = "My Razor Page";
+            Message = "Hello from the model class!";
+        }
+    }
+}
