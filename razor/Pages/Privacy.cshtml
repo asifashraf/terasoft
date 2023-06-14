@@ -1,0 +1,23 @@
+﻿@page
+@model PrivacyModel
+
+<h1>@Model.Title</h1>
+<p>@Model.Message</p>
+
+@functions {
+    public class PrivacyModel : PageModel
+    {
+        public string? Title { get; set; }
+        public string? Message { get; set; }
+
+        public void OnGet()
+        {
+            Title = "My Razor Page";
+            Message = "Hello from the model class!";
+        }
+    }
+}
+
+@section inHead {
+    <link rel="stylesheet" href="~/css/content-page.css" />
+}

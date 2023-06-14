@@ -1,0 +1,32 @@
+# Visual Studio / Visual Studio Code
+.vs/
+
+
+# Build artifacts
+/bin/
+/obj/
+
+# NuGet Packages
+*.nuget.props
+*.nuget.targets
+NuGet.Config
+*.nupkg
+**/project.lock.json
+**/*.swp
+
+# Test Results
+TestResults/
+
+# .NET Core
+project.assets.json
+*.userprefs
+*.sln.ide
+
+# Other
+*.log
+*.sqlite
+*.db
+*.csv
+*.log
+*.bak
+*.vspscc
