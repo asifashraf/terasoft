@@ -6,7 +6,7 @@
     string fileName = "extras/learn/aspnet/01-intro.md";  // Relative file path from the ASP.NET project root
 
     // Read Markdown content from file
-    string filePath = Path.Combine(env.WebRootPath, fileName);
+    string filePath = System.IO.Path.Combine(env.WebRootPath, fileName);
     string markdownContent = System.IO.File.ReadAllText(filePath);
 
     // Render Markdown to HTML using Markdig
@@ -14,15 +14,15 @@
     string htmlContent = Markdig.Markdown.ToHtml(markdownContent, pipeline);
 }
 
-<h1>@Model.Title</h1>
+<h1>@Model.Title </h1>
 <p>@Model.Message</p>
 <div>@Html.Raw(htmlContent)</div>
-
+ 
 @functions {
     public class LearnModel : PageModel
     {
-        public string Title { get; set; }
-        public string Message { get; set; }
+        public string? Title { get; set; }
+        public string? Message { get; set; }
 
         public void OnGet()
         {
