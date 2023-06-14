@@ -2,6 +2,7 @@ version: '3.4'
 
 services:
   web:
+    container_name: ttweb
     image: mcr.microsoft.com/dotnet/sdk:7.0
     volumes:
       - ./webapp:/app
